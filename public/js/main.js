@@ -1,3 +1,5 @@
+var tempoInicial = $(".tempo-digitacao").text(); // guardando o tempo inicial
+
 var frase = $(".frase").text();
 var numeroPalavras = frase.split(" ").length;
 var tamanhoFrase = $(".tamanho-frase");
@@ -20,4 +22,12 @@ campo.one("focus",function(){ // função 'one' serve para uma chamada apenas
       clearInterval(cronometro);   // e fecha o setInterval
     }
   }, 1000) // vai fazer toda a função dentro do setInterval dentro desse tempo
+})
+
+$("#botao-reiniciar").click(function(){
+  campo.val("");
+  campo.attr("disabled", false);
+  $(".contador-palavras").text("0 palavras");
+  $(".contador-caracteres").text("0 caracteres");
+  $(".tempo-digitacao").text(tempoInicial);
 })
