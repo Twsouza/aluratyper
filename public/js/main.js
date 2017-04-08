@@ -42,4 +42,5 @@ function reiniciaJogo() {
   $(".contador-palavras").text("0 palavras"); // zera contador-palavras
   $(".contador-caracteres").text("0 caracteres"); // zera contador-caracteres
   $(".tempo-digitacao").text(tempoInicial); //reinicia tempo
+  inicializaContadores();  
 }
