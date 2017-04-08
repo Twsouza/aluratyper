@@ -1,7 +1,9 @@
 var tempoInicial = $(".tempo-digitacao").text(); // guardando o tempo inicial
 var campo = $(".campo-digitacao");
+var cronometro;
 
-$(document).ready(function(){
+//$(document).ready(function(){
+$(function(){
   atualizaFrase();
   atualizaContadores();
   inicializaContadores();
@@ -26,7 +28,7 @@ function atualizaContadores() {
 function inicializaContadores() {
   campo.one("focus",function(){ // função 'one' serve para uma chamada apenas
     var tempoRestante = $(".tempo-digitacao").text(); // pega o tempo
-    var cronometro = setInterval(function(){ // armazena o id do setInterval
+    cronometro = setInterval(function(){ // armazena o id do setInterval
       tempoRestante--;
       $(".tempo-digitacao").text(tempoRestante); //alterar o tempo na pagina
       if(tempoRestante <= 0){        // se for menor q zero,
@@ -37,10 +39,11 @@ function inicializaContadores() {
   })
 }
 function reiniciaJogo() {
+  clearInterval(cronometro);
   campo.val("");//zera campo
   campo.attr("disabled", false); //habilita textarea
   $(".contador-palavras").text("0 palavras"); // zera contador-palavras
   $(".contador-caracteres").text("0 caracteres"); // zera contador-caracteres
   $(".tempo-digitacao").text(tempoInicial); //reinicia tempo
-  inicializaContadores();  
+  inicializaContadores();
 }
