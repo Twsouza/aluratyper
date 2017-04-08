@@ -1,12 +1,13 @@
-var frase = $(".frase").text();
-var numeroPalavras = frase.split(" ").length;
-var tamanhoFrase = $(".tamanho-frase");
-tamanhoFrase.text(numeroPalavras + " palavras");
+var frase = $(".frase").text();                   // pega a frase
+var numeroPalavras = frase.split(" ").length;     // divide a frase em cada palavra e conta
+var tamanhoFrase = $(".tamanho-frase");           // armazena o elemento da frase pra alterar
+tamanhoFrase.text(numeroPalavras + " palavras");  //altera para a quantidade de palavras
 
 var campo = $(".campo-digitacao");
-campo.on("input",function(){
-  var conteudo = campo.val();
-  $(".contador-palavras").text(conteudo.split(/\S+/).length-1 + " palavras");
+campo.on("input",function(){ // escuta o input no textarea
+  var conteudo = campo.val(); // pega o conteudo do text area
+  $(".contador-palavras").text(conteudo.split(/\S+/).length-1 + " palavras"); // altera o contador de palavras
+  //separa as palavras por espaço, colocamos o '/\S+/' para retirar um ou mais espaços, e conta, o -1 serve para zerar quando tudo é apagado
   $(".contador-caracteres").text(conteudo.length + " caracteres");
 });
 
