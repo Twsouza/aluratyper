@@ -7,6 +7,7 @@ $(function(){
   atualizaFrase();
   atualizaContadores();
   inicializaContadores();
+  inicializaMarcadores();
   $("#botao-reiniciar").click(reiniciaJogo);
 })
 
@@ -41,6 +42,22 @@ function inicializaContadores() {
     }, 1000) // vai fazer toda a função dentro do setInterval dentro desse tempo
   })
 }
+
+function inicializaMarcadores(){
+  var frase = $(".frase").text();
+  campo.on("input", function(){
+    var digitado = campo.val();
+    var comparavel = frase.substr(0,digitado.length);
+    if (comparavel == digitado) {
+      campo.addClass("campo-correto");
+      campo.removeClass("campo-incorreto");
+    } else {
+      campo.addClass("campo-incorreto");
+      campo.removeClass("campo-correto");
+    }
+  })
+}
+
 function reiniciaJogo() {
   clearInterval(cronometro);
   campo.val("");//zera campo
@@ -49,6 +66,8 @@ function reiniciaJogo() {
   $(".contador-caracteres").text("0"); // zera contador-caracteres
   $(".tempo-digitacao").text(tempoInicial); //reinicia tempo
   campo.toggleClass("campo-desativado");
-  campo.toggleClass("campo-ativado")
+  campo.toggleClass("campo-ativado");
+  campo.removeClass("campo-incorreto");
+  campo.removeClass("campo-correto");
   inicializaContadores();
 }
