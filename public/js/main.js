@@ -34,6 +34,9 @@ function inicializaContadores() {
       if(tempoRestante <= 0){        // se for menor q zero,
         campo.attr("disabled", true);// desabilita o textarea
         clearInterval(cronometro);   // e fecha o setInterval
+        //campo.css("background-color", "lightgray");,
+        campo.removeClass("campo-ativado");
+        campo.addClass("campo-desativado");
       }
     }, 1000) // vai fazer toda a função dentro do setInterval dentro desse tempo
   })
@@ -45,5 +48,7 @@ function reiniciaJogo() {
   $(".contador-palavras").text("0 palavras"); // zera contador-palavras
   $(".contador-caracteres").text("0 caracteres"); // zera contador-caracteres
   $(".tempo-digitacao").text(tempoInicial); //reinicia tempo
+  campo.removeClass("campo-desativado");
+  campo.addClass("campo-ativado")
   inicializaContadores();
 }
