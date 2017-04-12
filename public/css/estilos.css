@@ -1,0 +1,40 @@
+.campo-digitacao, .frase
+{
+  font-size: 1.4em;
+}
+
+.frase
+{
+  text-align: left;
+}
+
+.campo-digitacao
+{
+  height: 10em;
+  border: 0.1em solid black;
+}
+
+.campo-correto
+{
+  border: 0.2em solid green;
+}
+
+.campo-incorreto
+{
+  border: 0.3em solid red;
+}
+
+.campo-desativado
+{
+  background-color: lightgray;
+}
+
+.campo-ativado
+{
+  background-color: white;
+}
+
+.icones
+{
+  vertical-align: middle;
+}
