@@ -14,14 +14,14 @@ function atualizaFrase() {
   var frase = $(".frase").text();
   var numeroPalavras = frase.split(" ").length;
   var tamanhoFrase = $(".tamanho-frase");
-  tamanhoFrase.text(numeroPalavras + " palavras");
+  tamanhoFrase.text(numeroPalavras);
 }
 
 function atualizaContadores() {
   campo.on("input",function(){
     var conteudo = campo.val();
-    $(".contador-palavras").text(conteudo.split(/\S+/).length-1 + " palavras"); //conta a quantidade de palavras, separando por um ou mais espaços(regex /\S+/), -1 serve para zerar o contador
-    $(".contador-caracteres").text(conteudo.length + " caracteres");//conta a quantidade de caracteres
+    $(".contador-palavras").text(conteudo.split(/\S+/).length-1); //conta a quantidade de palavras, separando por um ou mais espaços(regex /\S+/), -1 serve para zerar o contador
+    $(".contador-caracteres").text(conteudo.length);//conta a quantidade de caracteres
   });
 }
 
@@ -35,8 +35,8 @@ function inicializaContadores() {
         campo.attr("disabled", true);// desabilita o textarea
         clearInterval(cronometro);   // e fecha o setInterval
         //campo.css("background-color", "lightgray");,
-        campo.removeClass("campo-ativado");
-        campo.addClass("campo-desativado");
+        campo.toggleClass("campo-ativado");
+        campo.toggleClass("campo-desativado");
       }
     }, 1000) // vai fazer toda a função dentro do setInterval dentro desse tempo
   })
@@ -45,10 +45,10 @@ function reiniciaJogo() {
   clearInterval(cronometro);
   campo.val("");//zera campo
   campo.attr("disabled", false); //habilita textarea
-  $(".contador-palavras").text("0 palavras"); // zera contador-palavras
-  $(".contador-caracteres").text("0 caracteres"); // zera contador-caracteres
+  $(".contador-palavras").text("0"); // zera contador-palavras
+  $(".contador-caracteres").text("0"); // zera contador-caracteres
   $(".tempo-digitacao").text(tempoInicial); //reinicia tempo
-  campo.removeClass("campo-desativado");
-  campo.addClass("campo-ativado")
+  campo.toggleClass("campo-desativado");
+  campo.toggleClass("campo-ativado")
   inicializaContadores();
 }
