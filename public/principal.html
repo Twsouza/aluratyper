@@ -10,36 +10,51 @@
 <body>
   <div class="container">
     <h1 class="center">Alura Typer</h1>
-      <p class="frase center">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <p class="frase center">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 
-      <ul class="informacoes center">
-          <li>
-            <i class="small material-icons icones">description</i>
-            <span class="tamanho-frase">0</span> palavras
-          </li>
-          <li>
-            <i class="small material-icons icones">query_builder</i>
-            <span class="tempo-digitacao">10</span> segundos
-          </li>
-      </ul>
-
-      <textarea class="campo-digitacao campo-ativado" rows="8" cols="80"></textarea>
-      <div class="botoes">
-        <a class="btn-floating btn-large waves-effect waves-light red" id="botao-reiniciar">
-          <i class="material-icons">restore</i>
-        </a>
-      </div>
-
-      <ul class="center">
+    <ul class="informacoes center">
         <li>
-          <span class="contador-caracteres">0</span> caracteres
+          <i class="small material-icons icones">description</i>
+          <span class="tamanho-frase">0</span> palavras
         </li>
         <li>
-          <span class="contador-palavras">0</span> palavras
+          <i class="small material-icons icones">query_builder</i>
+          <span class="tempo-digitacao">10</span> segundos
         </li>
-      </ul>
+    </ul>
+
+    <textarea class="campo-digitacao campo-ativado" rows="8" cols="80"></textarea>
+    <div class="botoes">
+      <a class="btn-floating btn-large waves-effect waves-light red" id="botao-reiniciar">
+        <i class="material-icons">restore</i>
+      </a>
+    </div>
+    <ul class="center">
+      <li>
+        <span class="contador-caracteres">0</span> caracteres
+      </li>
+      <li>
+        <span class="contador-palavras">0</span> palavras
+      </li>
+    </ul>
+
+    <section class="placar">
+      <h3 class="center">Placar</h3>
+      <table class="centered bordered">
+        <thead>
+          <tr>
+            <th>Usuário</th>
+            <th>No. de palavras</th>
+            <th>Remover?</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    </section>
   </div>
 <script src="js/jquery.js"></script>
 <script src="js/main.js"></script>
+<script src="js/placar.js"></script>
 </body>
 </html>

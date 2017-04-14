@@ -33,14 +33,18 @@ function inicializaContadores() {
       tempoRestante--;
       $(".tempo-digitacao").text(tempoRestante); //alterar o tempo na pagina
       if(tempoRestante <= 0){        // se for menor q zero,
-        campo.attr("disabled", true);// desabilita o textarea
         clearInterval(cronometro);   // e fecha o setInterval
-        //campo.css("background-color", "lightgray");,
-        campo.toggleClass("campo-ativado");
-        campo.toggleClass("campo-desativado");
+        finalizaJogo();
       }
     }, 1000) // vai fazer toda a função dentro do setInterval dentro desse tempo
   })
+}
+function finalizaJogo(){
+  campo.attr("disabled", true);// desabilita o textarea
+  //campo.css("background-color", "lightgray");,
+  campo.toggleClass("campo-ativado");
+  campo.toggleClass("campo-desativado");
+  inserePlacar();
 }
 
 function inicializaMarcadores(){
