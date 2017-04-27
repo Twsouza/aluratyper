@@ -9,6 +9,7 @@ $(function(){
   inicializaContadores();
   inicializaMarcadores();
   $("#botao-reiniciar").click(reiniciaJogo);
+  $("#botao-placar").click(mostraPlacar);
 })
 
 function atualizaFrase() {

@@ -1,3 +1,8 @@
+/* pra barra de rolar ficar */
+body {
+    overflow: scroll;
+}
+
 .campo-digitacao, .frase
 {
   font-size: 1.4em;
@@ -37,4 +42,9 @@
 .icones
 {
   vertical-align: middle;
+}
+
+.placar
+{
+  display: none;
 }
