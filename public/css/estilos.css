@@ -44,7 +44,16 @@ body {
   vertical-align: middle;
 }
 
-.placar
+.placar, #spinner
 {
   display: none;
+}
+
+#erro {
+  color: red;
+  display: none;
+}
+
+#frase-id{
+  width: 3em;
 }

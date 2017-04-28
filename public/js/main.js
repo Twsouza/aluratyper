@@ -43,14 +43,14 @@ function inicializaContadores() {
 function finalizaJogo(){
   campo.attr("disabled", true);// desabilita o textarea
   //campo.css("background-color", "lightgray");,
-  campo.toggleClass("campo-ativado");
   campo.toggleClass("campo-desativado");
+  campo.toggleClass("campo-ativado");
   inserePlacar();
 }
 
 function inicializaMarcadores(){
-  var frase = $(".frase").text();
   campo.on("input", function(){
+    var frase = $(".frase").text();
     var digitado = campo.val();
     var comparavel = frase.substr(0,digitado.length);
     if (comparavel == digitado) {
@@ -65,14 +65,23 @@ function inicializaMarcadores(){
 
 function reiniciaJogo() {
   clearInterval(cronometro);
+  limpaInput();
+  $(".tempo-digitacao").text(tempoInicial); //reinicia tempo
+}
+
+function atualizaTempoInicial(tempo) {
+  tempoInicial = tempo;
+  $(".tempo-digitacao").text(tempo);
+}
+
+function limpaInput() {
   campo.val("");//zera campo
   campo.attr("disabled", false); //habilita textarea
   $(".contador-palavras").text("0"); // zera contador-palavras
   $(".contador-caracteres").text("0"); // zera contador-caracteres
-  $(".tempo-digitacao").text(tempoInicial); //reinicia tempo
-  campo.toggleClass("campo-desativado");
-  campo.toggleClass("campo-ativado");
   campo.removeClass("campo-incorreto");
   campo.removeClass("campo-correto");
+  campo.toggleClass("campo-desativado");
+  campo.toggleClass("campo-ativado");
   inicializaContadores();
 }
