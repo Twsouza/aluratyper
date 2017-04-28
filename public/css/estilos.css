@@ -57,3 +57,8 @@ body {
 #frase-id{
   width: 3em;
 }
+
+#botao-sync
+{
+  float: right;
+}

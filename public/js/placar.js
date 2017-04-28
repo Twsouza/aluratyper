@@ -1,3 +1,5 @@
+$("#botao-sync").click(sincronizaPlacar);
+
 function inserePlacar(){
   var corpoTabela = $(".placar").find("tbody");
   var usuario = "Taynan";
@@ -49,4 +51,11 @@ function scrollPlacar(){
     {
         scrollTop: posicaoPlacar + "px"
     }, 1000);
+}
+
+function sincronizaPlacar() {
+  var placar = [];
+  var linhas = $("tbody>tr");
+
+  console.log(linhas);
 }
