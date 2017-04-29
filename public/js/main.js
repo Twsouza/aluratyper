@@ -11,6 +11,11 @@ $(function(){
   atualizaPlacar();
   $("#botao-reiniciar").click(reiniciaJogo);
   $("#botao-placar").click(mostraPlacar);
+
+  $("#usuarios").selectize({
+      create: true,
+      sortField: 'text'
+  });
 })
 
 function atualizaFrase() {

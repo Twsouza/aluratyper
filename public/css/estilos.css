@@ -62,3 +62,14 @@ body {
 {
   float: right;
 }
+
+.select-usuarios, #usuarios
+{
+  display: inline-block;
+}
+
+.selectize-control
+{
+  width: 10rem;
+  vertical-align: middle;
+}
