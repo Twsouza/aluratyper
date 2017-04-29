@@ -72,13 +72,23 @@ function sincronizaPlacar(){
     placar : placar
   }
 
-  $.post("http://localhost:3000/placar", dados, function(){
-    console.log("Salvos os dados no servidor");
-  });
+  $.post("http://localhost:3000/placarERRO", dados, function(){
+    $(".tooltip").tooltipster("open");
+    setTimeout(function(){
+      $(".tooltip").tooltipster("close");
+    },500);
+  })
+  .fail(function(){
+    $(".tooltip").tooltipster("open").tooltipster("content","Falha ao sincronizar");
+    setTimeout(function(){
+      $(".tooltip").tooltipster("close");
+    },1500);
+  })
 }
 
 function atualizaPlacar(){
-  $.get("http://localhost:3000/placar",function(data){
+  //$("#spinner").toggle();
+  $.get("http://localhost:3000/placarERRO",function(data){
     $(data).each(function(){
       var linha = novaLinha(this.usuario, this.palavras);
       linha.find(".botao-remover").click(removeLinha);
@@ -86,20 +96,21 @@ function atualizaPlacar(){
         });
   })
   .fail(function(){
+    //$("#spinner").toggle();
     $("#erro").show();
+    $(".tooltip").tooltipster("open").tooltipster("content","Falha ao sincronizar");
+
     setTimeout(function(){
+      $(".tooltip").tooltipster("close");
       $("#erro").hide();
-      $("#spinner").toggle();
     },1500);
   })
   .done(function(){
+    //$("#spinner").toggle();
+    $(".tooltip").tooltipster("open");
+
     setTimeout(function(){
-      $("#spinner").toggle();
+      $(".tooltip").tooltipster("close");
     },500);
   })
-  .always(function(){
-    setTimeout(function(){
-      $("#spinner").toggle();
-    },2000);
-  });
 }
