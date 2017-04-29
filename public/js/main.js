@@ -8,6 +8,7 @@ $(function(){
   atualizaContadores();
   inicializaContadores();
   inicializaMarcadores();
+  atualizaPlacar();
   $("#botao-reiniciar").click(reiniciaJogo);
   $("#botao-placar").click(mostraPlacar);
 })

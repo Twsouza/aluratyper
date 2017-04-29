@@ -53,9 +53,52 @@ function scrollPlacar(){
     }, 1000);
 }
 
-function sincronizaPlacar() {
+function sincronizaPlacar(){
   var placar = [];
   var linhas = $("tbody>tr");
 
-  console.log(linhas);
+  linhas.each(function(){
+    var usuario = $(this).find("td:nth-child(1)").text();
+    var palavras = $(this).find("td:nth-child(2)").text();
+    var score = {
+      usuario : usuario,
+      palavras : palavras
+    };
+    placar.push(score);
+  });
+
+  var dados = {
+    placar : placar
+  }
+
+  $.post("http://localhost:3000/placar", dados, function(){
+    console.log("Salvos os dados no servidor");
+  });
+}
+
+function atualizaPlacar(){
+  $.get("http://localhost:3000/placar",function(data){
+    console.log(data);
+        $(data).each(function(){
+            var linha = novaLinha(this.usuario, this.palavras);
+            $("tbody").append(linha);
+        });
+  })
+  .fail(function(){
+    $("#erro").show();
+    setTimeout(function(){
+      $("#erro").hide();
+      $("#spinner").toggle();
+        },1500);
+  })
+  .done(function(){
+    setTimeout(function(){
+            $("#spinner").toggle();
+        },500);
+  })
+  .always(function(){
+    setTimeout(function(){
+            $("#spinner").toggle();
+        },2000);
+  });
 }
