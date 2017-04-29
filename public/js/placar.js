@@ -36,9 +36,10 @@ function removeLinha(event){
   var linha = $(this).parent().parent();
 
   linha.fadeOut(2000);
-  setTimeOut(function(){
+  setTimeout(function(){
     linha.remove();
-  },2100);
+    sincronizaPlacar();
+  },2010);
 }
 
 function mostraPlacar(){
@@ -78,10 +79,10 @@ function sincronizaPlacar(){
 
 function atualizaPlacar(){
   $.get("http://localhost:3000/placar",function(data){
-    console.log(data);
-        $(data).each(function(){
-            var linha = novaLinha(this.usuario, this.palavras);
-            $("tbody").append(linha);
+    $(data).each(function(){
+      var linha = novaLinha(this.usuario, this.palavras);
+      linha.find(".botao-remover").click(removeLinha);
+      $("tbody").append(linha);
         });
   })
   .fail(function(){
@@ -89,16 +90,16 @@ function atualizaPlacar(){
     setTimeout(function(){
       $("#erro").hide();
       $("#spinner").toggle();
-        },1500);
+    },1500);
   })
   .done(function(){
     setTimeout(function(){
-            $("#spinner").toggle();
-        },500);
+      $("#spinner").toggle();
+    },500);
   })
   .always(function(){
     setTimeout(function(){
-            $("#spinner").toggle();
-        },2000);
+      $("#spinner").toggle();
+    },2000);
   });
 }

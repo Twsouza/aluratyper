@@ -47,6 +47,7 @@ function finalizaJogo(){
   campo.toggleClass("campo-desativado");
   campo.toggleClass("campo-ativado");
   inserePlacar();
+  sincronizaPlacar();
 }
 
 function inicializaMarcadores(){
