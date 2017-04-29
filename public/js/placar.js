@@ -72,7 +72,7 @@ function sincronizaPlacar(){
     placar : placar
   }
 
-  $.post("http://localhost:3000/placarERRO", dados, function(){
+  $.post("http://localhost:3000/placar", dados, function(){
     $(".tooltip").tooltipster("open");
     setTimeout(function(){
       $(".tooltip").tooltipster("close");
@@ -88,7 +88,7 @@ function sincronizaPlacar(){
 
 function atualizaPlacar(){
   //$("#spinner").toggle();
-  $.get("http://localhost:3000/placarERRO",function(data){
+  $.get("http://localhost:3000/placar",function(data){
     $(data).each(function(){
       var linha = novaLinha(this.usuario, this.palavras);
       linha.find(".botao-remover").click(removeLinha);
